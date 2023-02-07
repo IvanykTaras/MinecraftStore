@@ -16,3 +16,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.row{
+    justify-content: space-around;
+
+}
+
+.row .card{
+    margin-bottom: 2.5rem;
+}
