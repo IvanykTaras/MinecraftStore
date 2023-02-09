@@ -96,6 +96,8 @@ namespace MinecraftStore.Controllers
 
                 IdentityUser user = new IdentityUser(loginUser.Name);
                 var result = await _userManager.CreateAsync(user, loginUser.Password);
+               
+                //Error
                 if (!result.Succeeded)
                 {
                     foreach (var error in result.Errors)
@@ -105,16 +107,26 @@ namespace MinecraftStore.Controllers
                     return View(loginUser);
                 }
 
+
+                await _userManager.AddToRoleAsync(user, "User");
                 
-
-
-                //await _userManager.AddToRoleAsync(user, "User");
-
-
             }
 
             return View(loginUser);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public async Task<RedirectResult> Logout(string returnUrl = "/")
         {

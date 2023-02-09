@@ -30,10 +30,6 @@ namespace MinecraftStore.Data
                     await userManager.CreateAsync(user, adminPassword);
                     await userManager.AddToRoleAsync(user, "Admin");
                 }
-
-                
-
-                
             }
         }
     }
