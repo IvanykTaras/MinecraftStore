@@ -7,13 +7,6 @@
 @{
 }
 
-//
-    //id,
-    //name,
-    //createddate,
-    //price
-    //
-
 <form asp-action="Edit" method="post">
   <div class="mb-3">
     <label asp-for="Name" class="form-label">Nazwa</label>
@@ -32,6 +25,10 @@
   <div class="mb-3">
     <label asp-for="Rarity" class="form-label">Zadkosc</label>
     <select class="form-control" asp-for="Rarity" asp-items= "@Html.GetEnumSelectList<RarityOfProduct>()"></select>
+  </div>
+  <div class="mb-3">
+    <label asp-for="Image" class="form-label">Zadkosc</label>
+    <select class="form-control" asp-for="Image" asp-items= "@Html.GetEnumSelectList<ImgOfProduct>()"></select>
   </div>
 
 

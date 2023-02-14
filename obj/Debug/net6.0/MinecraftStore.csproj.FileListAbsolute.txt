@@ -291,3 +291,4 @@ C:\Users\Khrystyna Ivanyk\source\repos\MinecraftStore\bin\Debug\net6.0\Microsoft
 C:\Users\Khrystyna Ivanyk\source\repos\MinecraftStore\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Khrystyna Ivanyk\source\repos\MinecraftStore\obj\Debug\net6.0\MinecraftStore.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Khrystyna Ivanyk\source\repos\MinecraftStore\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Khrystyna Ivanyk\source\repos\MinecraftStore\bin\Debug\net6.0\XUnity.Common.dll

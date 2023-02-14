@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MinecraftStore.Data;
 using MinecraftStore.Data.Service;
 using MinecraftStore.Models;
 using Newtonsoft;
 using Newtonsoft.Json;
+using System.Security.Claims;
 using System.Text;
 
 namespace MinecraftStore.Controllers
@@ -12,20 +14,22 @@ namespace MinecraftStore.Controllers
     {
         Uri baseAddres = new Uri("https://localhost:7069/api/products");
         HttpClient client;
-        private readonly IProductService<Product> _productService;
-        public ProductController(IProductService<Product> productService)
+
+
+        public ProductController()
         {
             client = new HttpClient();
             client.BaseAddress = baseAddres;
 
-            _productService = productService;
         }
 
 
 
-
+        [Authorize]
         public IActionResult Index()
         {
+            string User_Id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            
             List<Product> productList = new List<Product>();
 
             HttpResponseMessage responseMessage = client.GetAsync(client.BaseAddress).Result;
@@ -102,8 +106,7 @@ namespace MinecraftStore.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            return RedirectToAction(nameof(Create)); ;
-            //_productService.Delete(id);
+            return RedirectToAction(nameof(Create)); 
 
         }
     }

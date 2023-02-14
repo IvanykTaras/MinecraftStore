@@ -16,7 +16,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlServer(builder.Configuration["Data:Connection"]));
 
-builder.Services.AddScoped<IProductService<Product>, ProductService>();
+builder.Services.AddScoped<IService<Product>, ProductService>();;
 
 
 //Database identity
@@ -64,5 +64,12 @@ app.MapControllerRoute(
     pattern: "{controller=Product}/{action=Index}/{id?}");
 
 IdentitySeedData.EnsurePopulated(app);
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    SeedData.Initialize(services);
+}
 
 app.Run();

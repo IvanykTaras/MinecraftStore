@@ -35,6 +35,10 @@ namespace MinecraftStore.Models
         public int Price { get; set; }
 
         public RarityOfProduct Rarity { get; set; }
+        
+        public ImgOfProduct Image { get; set; }
+
+
     }
 }
 

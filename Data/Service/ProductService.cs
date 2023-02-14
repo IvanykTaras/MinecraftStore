@@ -3,7 +3,7 @@ using MinecraftStore.Models;
 
 namespace MinecraftStore.Data.Service
 {
-    public class ProductService : IProductService<Product>
+    public class ProductService : IService<Product>
     {
 
         private readonly AppDbContext _context;
@@ -49,6 +49,8 @@ namespace MinecraftStore.Data.Service
             return _context.Products.Find(id);
         }
 
+        
+
         //Save
         public int Save(Product product)
         {
@@ -69,6 +71,7 @@ namespace MinecraftStore.Data.Service
                     find.Price = product.Price;
                     find.CreatedDate = product.CreatedDate;
                     find.Rarity = product.Rarity;
+                    find.Image = product.Image;
                     _context.SaveChanges();
                     return true;
                 }

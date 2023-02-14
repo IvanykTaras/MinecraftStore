@@ -5,14 +5,15 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using MinecraftStore.Data.Service;
 using MinecraftStore.Models;
 using System.Security.Policy;
 
-namespace MinecraftStore.Controllers
+namespace MinecraftStore.Controllers 
 {
     [Authorize]
     public class AccountController : Controller
-    {
+    {     
         private RoleManager<IdentityRole> _roleManager;
         private UserManager<IdentityUser> _userManager;
         private SignInManager<IdentityUser> _signInManager;
@@ -21,6 +22,7 @@ namespace MinecraftStore.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+
         }
 
 
@@ -58,11 +60,10 @@ namespace MinecraftStore.Controllers
                 {
                     await _signInManager.SignOutAsync();
                     if ((await _signInManager.PasswordSignInAsync(user,
-                    loginUser.Password, false, false)).Succeeded) ;
+                    loginUser.Password, false, false)).Succeeded);
                     {
-                        return Redirect(loginUser?.ReturnUrl ?? "/");
 
-                        //return RedirectToAction(nameof(Index));
+                        return Redirect(loginUser?.ReturnUrl ?? "/");
                     }
                 }
             }
@@ -96,7 +97,6 @@ namespace MinecraftStore.Controllers
 
                 IdentityUser user = new IdentityUser(loginUser.Name);
                 var result = await _userManager.CreateAsync(user, loginUser.Password);
-               
                 //Error
                 if (!result.Succeeded)
                 {
@@ -109,22 +109,18 @@ namespace MinecraftStore.Controllers
 
 
                 await _userManager.AddToRoleAsync(user, "User");
-                
+
+                await _signInManager.SignOutAsync();
+                if ((await _signInManager.PasswordSignInAsync(user,
+                loginUser.Password, false, false)).Succeeded) ;
+                {
+                    return Redirect(loginUser?.ReturnUrl ?? "/");
+                }
+
             }
 
             return View(loginUser);
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

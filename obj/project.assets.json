@@ -3860,6 +3860,19 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "XUnity.Common/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net35/XUnity.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net35/XUnity.Common.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
@@ -10939,6 +10952,19 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "XUnity.Common/1.0.0": {
+      "sha512": "A/Xx7LnjryutyIb/AetAiVd4bvQUlIps1GMot+lkWgDlMJLAFIPaBVyZkRfm1S3PptfR4qZkgLiwZsdLsmjEOA==",
+      "type": "package",
+      "path": "xunity.common/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/XUnity.Common.dll",
+        "lib/net35/XUnity.Common.xml",
+        "xunity.common.1.0.0.nupkg.sha512",
+        "xunity.common.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -10950,7 +10976,8 @@
       "Microsoft.EntityFrameworkCore.sqlserver >= 7.0.2",
       "Microsoft.EntityFrameworkCore.tools >= 7.0.2",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.11",
-      "Newtonsoft.Json >= 13.0.2"
+      "Newtonsoft.Json >= 13.0.2",
+      "XUnity.Common >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -11027,6 +11054,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.2, )"
+          },
+          "XUnity.Common": {
+            "target": "Package",
+            "version": "[1.0.0, )"
           }
         },
         "imports": [
@@ -11051,5 +11082,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Pakiet „XUnity.Common 1.0.0” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net6.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "libraryId": "XUnity.Common",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

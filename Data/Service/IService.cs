@@ -1,6 +1,6 @@
 ﻿namespace MinecraftStore.Data.Service
 {
-    public interface IProductService<T>
+    public interface IService<T>
     {
         public int Save(T item);
         public bool Delete(int? id);

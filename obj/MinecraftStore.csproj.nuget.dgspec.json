@@ -75,6 +75,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.2, )"
+            },
+            "XUnity.Common": {
+              "target": "Package",
+              "version": "[1.0.0, )"
             }
           },
           "imports": [

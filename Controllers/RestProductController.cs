@@ -9,9 +9,9 @@ namespace MinecraftStore.Controllers
     [Route("api/products")]
     public class RestProductController : ControllerBase
     {
-        private IProductService<Product> _productService;
+        private IService<Product> _productService;
 
-        public RestProductController(IProductService<Product> serviceProduct)
+        public RestProductController(IService<Product> serviceProduct)
         {
             _productService = serviceProduct;
         }
@@ -24,7 +24,7 @@ namespace MinecraftStore.Controllers
 
         [HttpGet]
         [Route("{Id}")]
-        public Product Get([FromRoute] int? id)
+        public Product GetById([FromRoute] int? id)
         {
             var find = _productService.FindById(id);
             
